@@ -43,3 +43,20 @@ To send notifications, you need a Telegram Bot and your personal Chat ID.
 1. **Create the script file:**
    ```bash
    sudo nano /usr/local/bin/tailscale-monitor.sh
+
+2. **Make it executable:**
+   ```bash
+   sudo chmod +x /usr/local/bin/tailscale-monitor.sh
+
+## Automation (Cron Job)
+
+1. **Make it executable:**
+   To monitor Tailscale automatically every 5 minutes:
+   ```bash
+   crontab -e
+
+2.  Add the following line at the bottom:
+  ```bash
+  */5 * * * * /usr/local/bin/tailscale-monitor.sh > /dev/null 2>&1
+
+
